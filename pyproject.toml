@@ -1,0 +1,36 @@
+[tool.ruff]
+target-version = "py310"
+line-length = 120
+extend-exclude = ["__pycache__", ".venv", "build", "dist"]
+
+[tool.ruff.lint]
+# Selecao ampla; as desativadas estao listadas com o motivo real.
+select = ["E", "F", "I", "UP", "B", "C4", "SIM"]
+ignore = [
+    "E501",   # linhas longas: reformatar 651 linhas de GUI Tkinter geraria diff ruinoso
+    "E402",   # imports fora do topo: intencional (imports apos setup de sys.path)
+    "E701",   # multiplos statements em uma linha: estilo herdado do codigo original
+    "E702",   # ponto-e-virgula: idem
+    "E741",   # nomes ambiguos (l, O): codigo legado, renomear sem teste e arriscado
+    "E722",   # bare except: usado de proposito nos caminhos de degradacao de notificacao
+    "F841",   # variavel nao usada: resquicio de logica removida, revisar uma a uma
+    "SIM102", # if aninhado: legibilidade nao piora
+    "SIM105", # try/except/pass: usado de proposito em fallbacks
+    "SIM108", # ternario: atribuir em if/else e mais claro na GUI
+    "SIM110", # loop reimplementando builtin: reescrever sem teste e risco
+    "SIM115", # abrir arquivo sem context manager: corrigir exige auditar fechamento
+    "SIM118", # `x in dict.keys()`: redundante mas explicito
+    "UP022",  # substituir sys.stdout/stderr: mudaria redirecionamento de log
+    "UP032",  # f-string: varias strings construidas por partes ao longo de funcoes longas
+    "B007",   # variavel de loop nao usada
+    "B008",   # chamada de funcao em default: padrao comum em Tkinter (command=lambda)
+    "B90",    # comparacoes de versao
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["E402"]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+addopts = "-q"

@@ -1,0 +1,13 @@
+All rights reserved.
+
+This source is published as a portfolio demonstration of how I approached real
+problems in Python desktop engineering. It is NOT offered under an open-source
+license and may NOT be copied, redistributed, sublicensed or used in production.
+
+This project automates access to a third-party student portal. It is not
+affiliated with, endorsed by, or licensed by that institution, and it does not
+use any published official API. Nothing here is a claim of ownership over
+third-party systems, and the app is provided as documentation of my approach,
+not as a tool for you to run against someone else's account.
+
+You may read it, learn from it and cite it.

@@ -1,0 +1,10 @@
+# Dependências do Uniasselvi App (Python 3.11+)
+# install:  python -m pip install -r requirements.txt
+#
+# pywin32 e win11toast sao especificos de Windows (DPAPI e toast nativo).
+# Em outro SO o app nao roda; os testes de parsing e agendamento rodam em qualquer um.
+requests>=2.32
+pystray>=0.19          # ícone na bandeja do sistema
+win11toast>=0.36       # notificação padrão do Windows 11
+pillow>=11             # ícone da bandeja
+pywin32>=311           # DPAPI para guardar a senha cifrada

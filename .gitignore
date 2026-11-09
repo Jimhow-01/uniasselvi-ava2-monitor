@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+build/
+dist/
+
+# Segredos e estado local (o app escreve tudo isso em runtime)
+.env
+*.env
+config.json
+state.json
+.cred
+.cred.plain
+.cred_sms
+.cred_sms.plain
+monitor.pid
+
+# Logs e dumps de resposta do portal (contem dados do aluno)
+*.log
+debug/
+
+# SO / editor
+Thumbs.db
+desktop.ini
+*.lnk
+.DS_Store
+.vscode/
+.idea/
+
+# Artefatos de teste/lint
+.pytest_cache/
+.ruff_cache/
+tests/__pycache__/
