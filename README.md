@@ -7,7 +7,7 @@
 ![PyInstaller](https://img.shields.io/badge/empacotado-PyInstaller-6C63FF)
 ![CI](https://github.com/Jimhow-01/uniasselvi-ava2-monitor/actions/workflows/ci.yml/badge.svg)
 ![Lint](https://img.shields.io/badge/lint-ruff-brightgreen)
-![Testes](https://img.shields.io/badge/testes-91%20passing-brightgreen?logo=pytest&logoColor=white)
+![Testes](https://img.shields.io/badge/testes-91-brightgreen?logo=pytest&logoColor=white)
 
 App desktop que acompanha o portal AVA2 da Uniasselvi e dispara **notificações do
 Windows** quando falta pouco (limiar configurável, padrão 3 dias) para:
@@ -254,6 +254,10 @@ classificação prova/trabalho, regra de "marcar prova", deduplicação entre as
 camadas de agendamento, janela silenciosa cruzando a meia-noite, cálculo do
 próximo horário, citação de aspas no PowerShell, normalização de telefone,
 round-trip de DPAPI e o lock de instância única.
+
+Na CI em Linux, 2 deles são pulados (`pytest.skip` condicional): os que exigem
+DPAPI de verdade. Os demais 89 rodam nos dois sistemas operacionais, e a
+suíte completa roda no Windows.
 
 `test_offline.py` é a suíte original do projeto (17 checagens), mantida como está.
 
