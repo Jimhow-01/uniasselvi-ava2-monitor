@@ -209,7 +209,7 @@ de palavras em `type_description`. É frágil por natureza; o sinal estrutural
 (`need_schedule`) tem prioridade, mas descrições novas podem cair na categoria
 errada.
 
-### Bugs encontrados ao escrever os testes (corrigidos neste repo)
+### Bugs encontrados ao lintar e testar (corrigidos neste repo)
 
 - **`_kind_for_test()` classificava trabalho como prova.** O teste de `"final" in
   desc` vinha antes dos marcadores de trabalho, então "Síntese final", "Produção
@@ -223,6 +223,13 @@ errada.
   `check_times` com hora inválida (`"25:00"`) passava por `_parse_hm` e derrubava
   `replace()` com `ValueError` não capturado, quebrando o loop de agendamento
   inteiro.
+- **`gui.py` chamava `save_password()` sem importar a função.** O módulo importava
+  `load_password` mas não `save_password`: `NameError` exatamente no caminho em que o
+  usuário salva uma senha nova.
+- **Lambda de erro referenciando a variável do `except`.** `self.d.after(0, lambda:
+  self._fail(f"Erro: {e}"))` roda depois do bloco `except`, e o Python já tinha apagado
+  `e` — o callback do Tkinter levantava `NameError` em vez de mostrar o motivo da falha
+  de login na janela.
 
 ---
 
