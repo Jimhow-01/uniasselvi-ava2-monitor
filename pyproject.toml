@@ -34,3 +34,7 @@ ignore = [
 minversion = "8.0"
 testpaths = ["tests"]
 addopts = "-q"
+# O `pytest` do CI nao coloca o diretorio do repo no sys.path (o `python -m pytest`
+# local coloca, e e por isso passava na minha maquina e falhava no runner).
+# pythonpath torna o pacote `uniasselvi` importavel nos dois casos.
+pythonpath = ["."]
